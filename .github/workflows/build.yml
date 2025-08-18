@@ -379,7 +379,7 @@ jobs:
           echo "CONFIG_NF_NAT=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_POSIX_MQUEUE=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_CGROUP_BPF=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_USER_NS=y" >> ./common/arch/arm64/configs/gki_defconfig
+          # echo "CONFIG_USER_NS=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_SECCOMP=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_SECCOMP_FILTER=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_CGROUP_PIDS=y" >> ./common/arch/arm64/configs/gki_defconfig
@@ -398,7 +398,7 @@ jobs:
           echo "CONFIG_IP_VS_PROTO_UDP=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_IP_VS_RR=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_SECURITY_SELINUX=y" >> ./common/arch/arm64/configs/gki_defconfig
-          echo "CONFIG_SECURITY_APPARMOR=y" >> ./common/arch/arm64/configs/gki_defconfig
+          # echo "CONFIG_SECURITY_APPARMOR=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_NFT_CT=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_NFT_FIB_IPV4=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_NFT_FIB_IPV6=y" >> ./common/arch/arm64/configs/gki_defconfig
