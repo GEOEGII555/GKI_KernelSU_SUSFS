@@ -315,6 +315,16 @@ jobs:
           echo "obj-y += min_kdp.o" >> Makefile
 
 
+      - name: Apply rvalyi/GKI-Custom for 5.10 kernels
+        if: ${{ ( inputs.kernel_version == '5.10' ) }}
+        run: |
+          cd "$CONFIG"
+          git clone https://github.com/rvalyi/GKI-Custom/ GKIDocker
+          cp ./GKIDocker/config/gki_defconfig-android12-5.10 ./common/arch/arm64/configs/gki_defconfig
+          cd ./common
+          git apply ../GKIDocker/patchs/*.patch
+
+
       - name: Add Configuration Settings
         run: |
           echo "Changing to configuration directory: $CONFIG..."
@@ -351,17 +361,6 @@ jobs:
           #echo "CONFIG_POSIX_MQUEUE=y" >> ./common/arch/arm64/configs/gki_defconfig
           #echo "CONFIG_USER_NS=y" >> ./common/arch/arm64/configs/gki_defconfig
           #echo "CONFIG_CGROUP_PIDS=y" >> ./common/arch/arm64/configs/gki_defconfig
-          cat >> ./common/arch/arm64/configs/gki_defconfig <<EOF
-          CONFIG_PID_NS=y
-          CONFIG_IPC_NS=y
-          CONFIG_USER_NS=y
-          CONFIG_CGROUP_DEVICE=y
-          CONFIG_CGROUP_PIDS=y
-          CONFIG_POSIX_MQUEUE=y
-          CONFIG_BRIDGE_NETFILTER=y
-          CONFIG_IPVLAN=y
-          CONFIG_MACVLAN=y
-          EOF
           cat ./common/arch/arm64/configs/gki_defconfig
 
           # Remove check_defconfig
