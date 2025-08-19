@@ -322,7 +322,9 @@ jobs:
           git clone https://github.com/rvalyi/GKI-Custom/ GKIDocker
           cp ./GKIDocker/config/gki_defconfig-android12-5.10 ./common/arch/arm64/configs/gki_defconfig
           cd ./common
-          git apply ../GKIDocker/patchs/*.patch
+          pwd
+          ls . ./fs
+          git apply --whitespace=fix ../GKIDocker/patchs/*.patch
 
 
       - name: Add Configuration Settings
