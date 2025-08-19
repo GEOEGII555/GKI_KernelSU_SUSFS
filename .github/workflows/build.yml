@@ -324,7 +324,11 @@ jobs:
           cd ./common
           pwd
           ls . ./fs
+          # broken patch
+          rm ../GKIDocker/patchs/3dcc884c689681dda2d9ad24a9e219013f70cfe8.patch
           git apply --whitespace=fix ../GKIDocker/patchs/*.patch
+          sed -i 's/DCACHE_OP_HASH/0/' ./fs/overlayfs/util.c
+          sed -i 's/DCACHE_OP_COMPARE/0/' ./fs/overlayfs/util.c
 
 
       - name: Add Configuration Settings
