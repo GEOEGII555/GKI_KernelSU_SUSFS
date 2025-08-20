@@ -321,6 +321,8 @@ jobs:
           cd "$CONFIG"
           git clone https://github.com/rvalyi/GKI-Custom/ GKIDocker
           cp ./GKIDocker/config/gki_defconfig-android12-5.10 ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_BRIDGE_NETFILTER=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_NETFILTER_XT_MATCH_IPVS=y" >> ./common/arch/arm64/configs/gki_defconfig
           cd ./common
           pwd
           ls . ./fs
